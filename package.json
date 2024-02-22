@@ -1,8 +1,11 @@
 {
   "dependencies": {
+    "clipboardy": "^4.0.0",
     "fs": "^0.0.1-security",
     "moment-timezone": "^0.5.45",
-    "puppeteer": "^21.10.0"
+    "puppeteer": "^21.10.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
   },
   "scripts": {
     "start": "node test/arbSearch.js",
