@@ -24,7 +24,7 @@ const testarbGmailLogin = (async (pages, sleep) => {
     await sleep(1000)
 
     console.log('> Initating the Slack Login')
-    await pages.goto('https://slack.com/intl/en-in/connect', { waitUntil: 'load' })
+    await pages.goto('https://slack.com/intl/en-in/connect', { waitUntil: 'load', timeout: 60000 })
     console.log('  > Visited the Slack official page')
 
     await pages.click('a[class="c-button v--left v--primary"]')
@@ -54,15 +54,12 @@ const testarbGmailLogin = (async (pages, sleep) => {
 
     }
     await pages.keyboard.press('Enter');
-    // await pages.waitForSelector('div[class="p-expanding_workspace_list"]')
-    // console.log('workspace selector found')
-    // await pages.click('div[class="p-expanding_workspace_list"]')
 
     await sleep(5000)
     console.log('  > Clicked on "Continue" Button')
     console.log('Google and Slack Login Completed')
 })
 
-export default testarbGmailLogin
+module.exports =  testarbGmailLogin
 
 

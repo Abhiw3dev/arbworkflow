@@ -1,7 +1,10 @@
 //fetch the mail and extract the OTP for login
-import puppeteer from 'puppeteer';
-import clipboardy from 'clipboardy';
-import sleep from './sleep.js';
+// import puppeteer from 'puppeteer';
+const puppeteer =require('puppeteer')
+// import clipboardy from 'clipboardy';
+const clipboardy = require('clipboardy')
+// import sleep from './sleep.js';
+const sleep = require('../utils/sleep.js')
 
  
 
@@ -78,4 +81,4 @@ const fetchMailData = (async () => {
 
 })
 
-export default fetchMailData
+module.exports= fetchMailData

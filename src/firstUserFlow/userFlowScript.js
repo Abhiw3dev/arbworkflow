@@ -117,7 +117,7 @@ const firstUserFlow = (async () => {
   await sleep(5000)
   await browser.close()
 
-})()
+})
 
 
 

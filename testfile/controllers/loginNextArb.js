@@ -1,6 +1,7 @@
-import fetchMailData from '../utils/fetchMailContent.js';
-import clipboardy from 'clipboardy';
-import sleep from '../utils/sleep.js';
+// import fetchMailData from '../../utils/fetchMailContent.js';
+const fetchMailData = require('../../utils/fetchMailContent.js')
+const clipboardy = require('clipboardy')
+const sleep = require('../../utils/sleep.js')
  
 
 //Login function for nextAppReviewBot
@@ -44,7 +45,7 @@ const Next_logintHandler = async (page) => {
         console.log('  > Not navigated to the expected page.');
         await sleep(2000)
         console.log("  > Navigating to the Login page again")
-        await page.goto('https://next.appreviewbot.com/login/')
+        await page.goto('https://next.appreviewbot.com/login/', {timeout: 60000})
         await page.waitForSelector('input[class="w-full py-3 px-4 text-md text-gray-900 placeholder-gray-400 border border-gray-200 focus:border-purple-500 focus:outline-purple rounded-lg bg-white null"]')
         await page.type('input[class="w-full py-3 px-4 text-md text-gray-900 placeholder-gray-400 border border-gray-200 focus:border-purple-500 focus:outline-purple rounded-lg bg-white null"]', 'arbtest@mailsac.com')
         console.log('   > Second attempt: Email entered ')
@@ -74,4 +75,4 @@ const Next_logintHandler = async (page) => {
     }
 }
 
-export default Next_logintHandler
+module.exports = Next_logintHandler

@@ -4,4 +4,4 @@ export const sleep = async function sleep(ms) {
     });
 }
 
-export default sleep
+module.exports = sleep
