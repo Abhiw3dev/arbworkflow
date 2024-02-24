@@ -7,21 +7,10 @@ const dotenv = require('dotenv');
 const clipboardy = require('clipboardy');
 
 describe('First User Flow Test', () => {
-    //   let browser;
-    //   let page;
-
     beforeAll(async () => {
-        // dotenv.config();
-        // puppeteerExtra.use(StealthPlugin());
-        // browser = await puppeteerExtra.launch({ headless: false, args: ['--start-maximized'], defaultViewport: null });
-        // page = await browser.newPage();
         console.log('Starting the Jest test for the arb first user flow')
     });
-
-    //   afterAll(async () => {
-    //     await browser.close();
-    //   });
-
+ 
     test('Login and Integration Test', async () => {
         dotenv.config();
         puppeteerExtra.use(StealthPlugin());
@@ -64,36 +53,16 @@ describe('First User Flow Test', () => {
         await page.keyboard.press('Enter');
         console.log(' > Selected a channel for integration');
         await sleep(2000);
+
+        //clicking on the allow button
         await page.keyboard.press('Enter')
-        console.log('click 1')
         await page.keyboard.press('Enter')
-        console.log('click 2')
+        console.log('Allow button clicked')
 
         await sleep(25000)
 
-        //click the "Allow" button
-        // const allowButton = 'button[type="submit"]'
-        // const allowButton = await page.waitForSelector('button[type="submit"]', { visible: true })
-    //     const xpathAllowButton = '//*[@id="oauth_install_form"]/div/div[2]/button';
-    //     const buttonElement = await page.$x(xpathAllowButton);
-    //     if (buttonElement.length > 0) {
-    //         await buttonElement[0].click();
-    //         console.log(' allow button clicked')
-    //     }
-
-    //     // await page.click( )
-    // else {
-    //     console.log(' > Clicked on "Allow" button not clicked')
-    // }
-        // for (let i = 0; i < 7; i++) {
-        //     await pages.keyboard.press('Tab');
-        // }
-        // await page.keyboard.press('Enter')
-        //  console.log(' > Clicked on "Allow" button')
-
-
         console.log(' > Waiting for few seconds until Alerts to appear');
-    const innerText = await page.evaluate(() => {
+        const innerText = await page.evaluate(() => {
         const targetElement = document.querySelector('div[class="container py-10"]');
         return targetElement ? targetElement.innerText.trim() : null;
     });
