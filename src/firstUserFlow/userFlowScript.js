@@ -20,7 +20,7 @@ const firstUserFlow = (async () => {
   const pages = await browser.newPage();
 
   testarbGmailLogin(pages, sleep)
-  await sleep(90000)
+  await sleep(20000)
 
   const page = await browser.newPage();
 
@@ -72,16 +72,18 @@ const firstUserFlow = (async () => {
   //select slack-channel
   await page.keyboard.press('Enter')
 
-  await sleep(2000)
-  const allowButton = 'button[class="c-button c-button--primary c-button--medium"]'
-  await page.waitForSelector(allowButton, { visible: true })
-
+  await sleep(5000)
   //click the "Allow" button
-  for (let i = 0; i < 5; i++) {
-    await pages.keyboard.press('Tab');
-  }
-  await page.keyboard.press('Enter')
-  console.log(' > Clicked on "Allow" button')
+  const allowButton = 'button[.c-button.c-button--primary.c-button--medium"]'
+  await page.waitForSelector(allowButton, { visible: true })
+  await page.click(allowButton)
+
+  // //click the "Allow" button
+  // for (let i = 0; i < 5; i++) {
+  //   await pages.keyboard.press('Tab');
+  // }
+  // await page.keyboard.press('Enter')
+  // console.log(' > Clicked on "Allow" button')
 
   await sleep(25000)
   console.log(' > Waiting for few seconds until Alerts to appear')

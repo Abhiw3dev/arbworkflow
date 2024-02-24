@@ -7,14 +7,14 @@ const testarbGmailLogin = (async (pages, sleep) => {
 
     const loginUrl = "https://accounts.google.com/AccountChooser?service=mail&continue=https://google.com&hl=en";
 
-    await pages.goto(loginUrl, { waitUntil: 'load' });
+    await pages.goto(loginUrl, { waitUntil: 'load', timeout: 30000});
     await pages.type('input[type="email"]', googleUsername);
     await pages.keyboard.press('Enter');
     console.log('  > Google Email ID entered: ', googleUsername)
     await sleep(4000)
 
     await pages.click('input[class="whsOnd zHQkBf"]')
-    await sleep(4000)
+    await sleep(1000)
     await pages.type('input[class="whsOnd zHQkBf"]', googlePassword);
     await pages.keyboard.press('Enter');
     console.log('  > Google Email ID Password entered: ###########', )
@@ -24,7 +24,7 @@ const testarbGmailLogin = (async (pages, sleep) => {
     await sleep(1000)
 
     console.log('> Initating the Slack Login')
-    await pages.goto('https://slack.com/intl/en-in/connect', { waitUntil: 'load', timeout: 60000 })
+    await pages.goto('https://slack.com/intl/en-in/connect', { waitUntil: 'load', timeout: 40000 })
     console.log('  > Visited the Slack official page')
 
     await pages.click('a[class="c-button v--left v--primary"]')
@@ -58,6 +58,7 @@ const testarbGmailLogin = (async (pages, sleep) => {
     await sleep(5000)
     console.log('  > Clicked on "Continue" Button')
     console.log('Google and Slack Login Completed')
+    await pages.close()
 })
 
 module.exports =  testarbGmailLogin
