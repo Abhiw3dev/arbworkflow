@@ -2,7 +2,7 @@
 const puppeteer = require('puppeteer');
 
 async function searchTime(url, searchTerm) {
-    const browser = await puppeteer.launch({ headless: false, args: ['--start-maximized'], defaultViewport: null });
+    const browser = await puppeteer.launch({ headless: "new", args: ['--start-maximized','--no-sandbox', '--disable-setuid-sandbox' ], defaultViewport: null });
     const page = await browser.newPage();
 
     try {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1708772191909" clover="3.2.0">
-  <project timestamp="1708772191909" name="All files">
-    <metrics statements="137" coveredstatements="113" conditionals="17" coveredconditionals="6" methods="13" coveredmethods="9" elements="167" coveredelements="128" complexity="0" loc="137" ncloc="137" packages="3" files="6" classes="6"/>
+<coverage generated="1708774510188" clover="3.2.0">
+  <project timestamp="1708774510188" name="All files">
+    <metrics statements="137" coveredstatements="112" conditionals="17" coveredconditionals="6" methods="13" coveredmethods="9" elements="167" coveredelements="127" complexity="0" loc="137" ncloc="137" packages="3" files="6" classes="6"/>
     <package name="src">
       <metrics statements="25" coveredstatements="24" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
       <file name="arbScript.js" path="C:\Users\w3dev\Desktop\puppeteer-githubActions\src\arbScript.js">
@@ -66,9 +66,9 @@
       </file>
     </package>
     <package name="utils">
-      <metrics statements="86" coveredstatements="75" conditionals="9" coveredconditionals="2" methods="11" coveredmethods="7"/>
+      <metrics statements="86" coveredstatements="74" conditionals="9" coveredconditionals="2" methods="11" coveredmethods="7"/>
       <file name="captureLogs.js" path="C:\Users\w3dev\Desktop\puppeteer-githubActions\utils\captureLogs.js">
-        <metrics statements="22" coveredstatements="20" conditionals="5" coveredconditionals="2" methods="4" coveredmethods="3"/>
+        <metrics statements="22" coveredstatements="19" conditionals="5" coveredconditionals="2" methods="4" coveredmethods="3"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
@@ -80,7 +80,7 @@
         <line num="19" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
         <line num="23" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="24" count="1" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
         <line num="27" count="1" type="stmt"/>
         <line num="29" count="4" type="stmt"/>
         <line num="30" count="4" type="stmt"/>

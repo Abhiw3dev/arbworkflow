@@ -4,7 +4,7 @@ const googleLogin = require('../utils/googleLogin.js');
 const loginHandler = require('../testfile/controllers/googleLoginNext.js');
 const sleep = require('../utils/sleep.js');
 const dotenv = require('dotenv');
-const clipboardy = require('clipboardy');
+ 
 
 describe('First User Flow Test', () => {
     beforeAll(async () => {
@@ -14,7 +14,7 @@ describe('First User Flow Test', () => {
     test('Login and Integration Test', async () => {
         dotenv.config();
         puppeteerExtra.use(StealthPlugin());
-        const browser = await puppeteerExtra.launch({ headless: false, args: ['--start-maximized'], defaultViewport: null });
+        const browser = await puppeteerExtra.launch({ headless: "new", args: ['--start-maximized','--no-sandbox', '--disable-setuid-sandbox'], defaultViewport: null });
         const pages = await browser.newPage();
         console.log('Logging in to Gmail');
         await googleLogin(pages, sleep);
