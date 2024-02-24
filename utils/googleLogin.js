@@ -34,7 +34,8 @@ const testarbGmailLogin = (async (pages, sleep) => {
     await sleep(7000)
     console.log('  > Clicked on "Continue With Google" Button')
 
-    await pages.waitForSelector('div[class="WBW9sf"]', { visible: true })
+    await sleep(5000)
+    // await pages.waitForSelector('div[class="WBW9sf"]', { visible: true })
     await pages.click('div[class="WBW9sf"]')
     await sleep(8000)
     console.log('  > Clicked on right "google account"')
