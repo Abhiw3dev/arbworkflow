@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">63.26% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>47/47</span>
+                <span class='fraction'>31/49</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">65.95% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>45/45</span>
+                <span class='fraction'>31/47</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -130,7 +130,9 @@
 <a name='L65'></a><a href='#L65'>65</a>
 <a name='L66'></a><a href='#L66'>66</a>
 <a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -167,31 +169,33 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -206,7 +210,7 @@ const testarbGmailLogin = (async (pages, sleep) =&gt; {
 &nbsp;
     const loginUrl = "https://accounts.google.com/AccountChooser?service=mail&amp;continue=https://google.com&amp;hl=en";
 &nbsp;
-    await pages.goto(loginUrl, { waitUntil: 'load', timeout: 30000});
+    await pages.goto(loginUrl, { waitUntil: 'load'})
     await pages.type('input[type="email"]', googleUsername);
     await pages.keyboard.press('Enter');
     console.log('  &gt; Google Email ID entered: ', googleUsername)
@@ -233,32 +237,34 @@ const testarbGmailLogin = (async (pages, sleep) =&gt; {
     await sleep(7000)
     console.log('  &gt; Clicked on "Continue With Google" Button')
 &nbsp;
-    await sleep(5000)
-    // await pages.waitForSelector('div[class="WBW9sf"]', { visible: true })
-    await pages.click('div[class="WBW9sf"]')
-    await sleep(8000)
-    console.log('  &gt; Clicked on right "google account"')
+    await sleep(7000)
+    await pages.waitForSelector('div[class="WBW9sf"]', { visible: true , timeout: 60000})
+<span class="cstat-no" title="statement not covered" >    await pages.waitForSelector('div[class="WBW9sf"]', { visible: true , timeout: 60000})</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    await pages.click('div[class="WBW9sf"]')</span>
+<span class="cstat-no" title="statement not covered" >    await sleep(8000)</span>
+<span class="cstat-no" title="statement not covered" >    console.log('  &gt; Clicked on right "google account"')</span>
 &nbsp;
     //Click on the Continue button through Keyboard button "Tab" 
-    for (let i = 0; i &lt; 6; i++) {
-        await pages.keyboard.press('Tab');
+<span class="cstat-no" title="statement not covered" >    for (let i = <span class="cstat-no" title="statement not covered" >0;</span> i &lt; 6; i++) {</span>
+<span class="cstat-no" title="statement not covered" >        await pages.keyboard.press('Tab');</span>
     }
-    await pages.keyboard.press('Enter');
-    console.log('  &gt; Clicked on "Continue" Button')
-    await sleep(7000)
+<span class="cstat-no" title="statement not covered" >    await pages.keyboard.press('Enter');</span>
+<span class="cstat-no" title="statement not covered" >    console.log('  &gt; Clicked on "Continue" Button')</span>
+<span class="cstat-no" title="statement not covered" >    await sleep(7000)</span>
      
 &nbsp;
     // Click on the workspace title
-    for (let i = 0; i &lt; 9; i++) {
-        await pages.keyboard.press('Tab');
+<span class="cstat-no" title="statement not covered" >    for (let i = <span class="cstat-no" title="statement not covered" >0;</span> i &lt; 9; i++) {</span>
+<span class="cstat-no" title="statement not covered" >        await pages.keyboard.press('Tab');</span>
 &nbsp;
     }
-    await pages.keyboard.press('Enter');
+<span class="cstat-no" title="statement not covered" >    await pages.keyboard.press('Enter');</span>
 &nbsp;
-    await sleep(5000)
-    console.log('  &gt; Clicked on "Continue" Button')
-    console.log('Google and Slack Login Completed')
-    await pages.close()
+<span class="cstat-no" title="statement not covered" >    await sleep(5000)</span>
+<span class="cstat-no" title="statement not covered" >    console.log('  &gt; Clicked on "Continue" Button')</span>
+<span class="cstat-no" title="statement not covered" >    console.log('Google and Slack Login Completed')</span>
+<span class="cstat-no" title="statement not covered" >    await pages.close()</span>
 })
 &nbsp;
 module.exports =  testarbGmailLogin
@@ -271,7 +277,7 @@ module.exports =  testarbGmailLogin
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-02-24T12:36:27.731Z
+                at 2024-02-24T15:46:28.737Z
             </div>
         <script src="../prettify.js"></script>
         <script>

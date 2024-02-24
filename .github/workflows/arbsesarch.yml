@@ -1,4 +1,4 @@
-name: Automation Tests
+name: Automation ARB Search Function
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
         run: npm install
 
       - name: Run tests with Jest
-        run: npm test # Add --coverage to generate test coverage report
+        run: npm test
 
       - name: Upload Jest Coverage Reports
         uses: actions/upload-artifact@v4.3.0

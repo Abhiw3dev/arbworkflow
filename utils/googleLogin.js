@@ -7,7 +7,7 @@ const testarbGmailLogin = (async (pages, sleep) => {
 
     const loginUrl = "https://accounts.google.com/AccountChooser?service=mail&continue=https://google.com&hl=en";
 
-    await pages.goto(loginUrl, { waitUntil: 'load', timeout: 30000});
+    await pages.goto(loginUrl, { waitUntil: 'load'})
     await pages.type('input[type="email"]', googleUsername);
     await pages.keyboard.press('Enter');
     console.log('  > Google Email ID entered: ', googleUsername)
