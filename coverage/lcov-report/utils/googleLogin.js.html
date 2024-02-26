@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">63.26% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>31/49</span>
+                <span class='fraction'>49/49</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">65.95% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>31/47</span>
+                <span class='fraction'>47/47</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -170,32 +170,32 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -239,32 +239,32 @@ const testarbGmailLogin = (async (pages, sleep) =&gt; {
 &nbsp;
     await sleep(7000)
     await pages.waitForSelector('div[class="WBW9sf"]', { visible: true , timeout: 60000})
-<span class="cstat-no" title="statement not covered" >    await pages.waitForSelector('div[class="WBW9sf"]', { visible: true , timeout: 60000})</span>
+    await pages.waitForSelector('div[class="WBW9sf"]', { visible: true , timeout: 60000})
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    await pages.click('div[class="WBW9sf"]')</span>
-<span class="cstat-no" title="statement not covered" >    await sleep(8000)</span>
-<span class="cstat-no" title="statement not covered" >    console.log('  &gt; Clicked on right "google account"')</span>
+    await pages.click('div[class="WBW9sf"]')
+    await sleep(8000)
+    console.log('  &gt; Clicked on right "google account"')
 &nbsp;
     //Click on the Continue button through Keyboard button "Tab" 
-<span class="cstat-no" title="statement not covered" >    for (let i = <span class="cstat-no" title="statement not covered" >0;</span> i &lt; 6; i++) {</span>
-<span class="cstat-no" title="statement not covered" >        await pages.keyboard.press('Tab');</span>
+    for (let i = 0; i &lt; 6; i++) {
+        await pages.keyboard.press('Tab');
     }
-<span class="cstat-no" title="statement not covered" >    await pages.keyboard.press('Enter');</span>
-<span class="cstat-no" title="statement not covered" >    console.log('  &gt; Clicked on "Continue" Button')</span>
-<span class="cstat-no" title="statement not covered" >    await sleep(7000)</span>
+    await pages.keyboard.press('Enter');
+    console.log('  &gt; Clicked on "Continue" Button')
+    await sleep(7000)
      
 &nbsp;
     // Click on the workspace title
-<span class="cstat-no" title="statement not covered" >    for (let i = <span class="cstat-no" title="statement not covered" >0;</span> i &lt; 9; i++) {</span>
-<span class="cstat-no" title="statement not covered" >        await pages.keyboard.press('Tab');</span>
+    for (let i = 0; i &lt; 9; i++) {
+        await pages.keyboard.press('Tab');
 &nbsp;
     }
-<span class="cstat-no" title="statement not covered" >    await pages.keyboard.press('Enter');</span>
+    await pages.keyboard.press('Enter');
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    await sleep(5000)</span>
-<span class="cstat-no" title="statement not covered" >    console.log('  &gt; Clicked on "Continue" Button')</span>
-<span class="cstat-no" title="statement not covered" >    console.log('Google and Slack Login Completed')</span>
-<span class="cstat-no" title="statement not covered" >    await pages.close()</span>
+    await sleep(5000)
+    console.log('  &gt; Clicked on "Continue" Button')
+    console.log('Google and Slack Login Completed')
+    await pages.close()
 })
 &nbsp;
 module.exports =  testarbGmailLogin
@@ -277,7 +277,7 @@ module.exports =  testarbGmailLogin
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-02-24T15:46:28.737Z
+                at 2024-02-26T06:31:16.917Z
             </div>
         <script src="../prettify.js"></script>
         <script>

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1708789588836" clover="3.2.0">
-  <project timestamp="1708789588836" name="All files">
-    <metrics statements="77" coveredstatements="38" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="3" elements="85" coveredelements="41" complexity="0" loc="77" ncloc="77" packages="2" files="3" classes="3"/>
+<coverage generated="1708929077008" clover="3.2.0">
+  <project timestamp="1708929077009" name="All files">
+    <metrics statements="77" coveredstatements="65" conditionals="4" coveredconditionals="1" methods="4" coveredmethods="4" elements="85" coveredelements="70" complexity="0" loc="77" ncloc="77" packages="2" files="3" classes="3"/>
     <package name="testfile.controllers">
-      <metrics statements="26" coveredstatements="3" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="26" coveredstatements="14" conditionals="4" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="googleLoginNext.js" path="C:\Users\w3dev\Desktop\puppeteer-githubActions\testfile\controllers\googleLoginNext.js">
-        <metrics statements="26" coveredstatements="3" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="26" coveredstatements="14" conditionals="4" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="2" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
         <line num="24" count="0" type="stmt"/>
@@ -35,9 +35,9 @@
       </file>
     </package>
     <package name="utils">
-      <metrics statements="51" coveredstatements="35" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <metrics statements="51" coveredstatements="51" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
       <file name="googleLogin.js" path="C:\Users\w3dev\Desktop\puppeteer-githubActions\utils\googleLogin.js">
-        <metrics statements="47" coveredstatements="31" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <metrics statements="47" coveredstatements="47" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
@@ -68,29 +68,29 @@
         <line num="35" count="1" type="stmt"/>
         <line num="37" count="1" type="stmt"/>
         <line num="38" count="1" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
-        <line num="55" count="0" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="61" count="0" type="stmt"/>
-        <line num="62" count="0" type="stmt"/>
-        <line num="63" count="0" type="stmt"/>
-        <line num="64" count="0" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="47" count="6" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="56" count="9" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
+        <line num="61" count="1" type="stmt"/>
+        <line num="62" count="1" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
+        <line num="64" count="1" type="stmt"/>
         <line num="67" count="1" type="stmt"/>
       </file>
       <file name="sleep.js" path="C:\Users\w3dev\Desktop\puppeteer-githubActions\utils\sleep.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
-        <line num="2" count="7" type="stmt"/>
-        <line num="3" count="7" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
       </file>
     </package>
