@@ -34,34 +34,42 @@ const testarbGmailLogin = (async (pages, sleep) => {
     await sleep(7000)
     console.log('  > Clicked on "Continue With Google" Button')
 
-    await sleep(7000)
-    await pages.waitForSelector('div[class="WBW9sf"]', { visible: true , timeout: 60000})
-    await pages.waitForSelector('div[class="WBW9sf"]', { visible: true , timeout: 60000})
+    await sleep(10000)
+    const dismissButton = 'button[class="VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-INsAgc VfPpkd-LgbsSe-OWXEXe-dgl2Hf Rj2Mlf OLiIxf PDpWxe P62QJc LQeN7 xYnMae TrZEUc lw1w4b"]'
+    await pages.waitForSelector(dismissButton, {visible:true})
+    if(dismissButton){
+        await pages.click(dismissButton)
+        console.log('  > Dismiss Button Clicked')
+    }
+
+    await pages.waitForSelector('div[class="WBW9sf"]', { visible: true})
+    await pages.reload()
+    await pages.waitForSelector('div[class="WBW9sf"]', { visible: true})
 
     await pages.click('div[class="WBW9sf"]')
     await sleep(8000)
     console.log('  > Clicked on right "google account"')
 
-    //Click on the Continue button through Keyboard button "Tab" 
-    for (let i = 0; i < 6; i++) {
-        await pages.keyboard.press('Tab');
-    }
-    await pages.keyboard.press('Enter');
-    console.log('  > Clicked on "Continue" Button')
-    await sleep(7000)
+    // //Click on the Continue button through Keyboard button "Tab" 
+    // for (let i = 0; i < 6; i++) {
+    //     await pages.keyboard.press('Tab');
+    // }
+    // await pages.keyboard.press('Enter');
+    // console.log('  > Clicked on "Continue" Button')
+    // await sleep(7000)
      
 
-    // Click on the workspace title
-    for (let i = 0; i < 9; i++) {
-        await pages.keyboard.press('Tab');
+    // // Click on the workspace title
+    // for (let i = 0; i < 9; i++) {
+    //     await pages.keyboard.press('Tab');
 
-    }
-    await pages.keyboard.press('Enter');
+    // }
+    // await pages.keyboard.press('Enter');
 
-    await sleep(5000)
-    console.log('  > Clicked on "Continue" Button')
-    console.log('Google and Slack Login Completed')
-    await pages.close()
+    // await sleep(5000)
+    // console.log('  > Clicked on "Continue" Button')
+    // console.log('Google and Slack Login Completed')
+    // await pages.close()
 })
 
 module.exports =  testarbGmailLogin
