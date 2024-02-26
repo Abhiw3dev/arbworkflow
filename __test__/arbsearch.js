@@ -1,6 +1,6 @@
 
 const searchTime = require('../src/arbScript.js');
-const captureConsoleLogs = require("../utils/captureLogs");
+const captureConsoleLogs = require("../utils/captureLogs.js");
 const convertHtml = require('../utils/convertHtml.js')
 
 // Initialize global log capture once before all tests start
