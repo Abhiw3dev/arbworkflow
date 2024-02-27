@@ -97,33 +97,38 @@ const googleLogin = require('../utils/googleLogin.js');
 const loginHandler = require('../testfile/controllers/googleLoginNext.js');
 const sleep = require('../utils/sleep.js');
 const dotenv = require('dotenv');
-dotenv.config();
 
-puppeteerExtra.use(StealthPlugin());
+
+
 
 describe('First User Flow Test', () => {
-    let browser;
-    let page;
-
+     
+ 
     beforeAll(async () => {
         console.log('Starting the Jest test for the arb first user flow');
-        browser = await puppeteerExtra.launch({
-            headless: true, // Recommended for CI/CD environments
-            args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--start-maximized'],
-            defaultViewport: null
-        });
-        page = await browser.newPage();
+        // browser = await puppeteerExtra.launch({
+        //     headless: false, // Recommended for CI/CD environments
+        //     args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--start-maximized'],
+        //     defaultViewport: null
+        // });
+        // puppeteerExtra.use(StealthPlugin());
+        // dotenv.config();
+        // page = await browser.newPage();
     });
 
-    afterAll(async () => {
-        await browser.close();
-    });
+    // afterAll(async () => {
+    //     await browser.close();
+    // });
 
     test('Login and Integration Test', async () => {
+        dotenv.config();
+                puppeteerExtra.use(StealthPlugin());
+                const browser = await puppeteerExtra.launch({ headless: false, args: ['--start-maximized','--no-sandbox', '--disable-setuid-sandbox'], defaultViewport: null });
+                const pages = await browser.newPage();
         console.log('Logging in to Gmail');
-        await googleLogin(page, sleep);
+        await googleLogin(pages, sleep);
         await sleep(10000);
-
+        const page = await browser.newPage();
         console.log('Beginning test on next.appreviewbot.com');
         await page.goto('https://next.appreviewbot.com/', { waitUntil: 'load', timeout: 60000 });
         console.log("> Reached target site");
