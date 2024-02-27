@@ -9,7 +9,7 @@ const Next_GoogleLogintHandler = async (page) => {
     await page.click(loginButton)
     await sleep(2000)
     await page.click('button[class="my-2 w-max bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-red-300 focus:outline-none text-gray-800 text-sm font-medium px-4 py-2 rounded flex items-center space-x-2 transition-colors duration-200"]')
-    await sleep(15000)
+    await sleep(10000)
     const newUrl = page.url();
     console.log(' > Validating the URL for correct navigation')
   // Verify if the navigation was successful

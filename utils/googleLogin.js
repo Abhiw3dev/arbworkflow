@@ -61,8 +61,6 @@ const testarbGmailLogin = (async (pages, sleep) => {
     // Click on the workspace title
     for (let i = 0; i < 9; i++) {
         await pages.keyboard.press('Tab');
-        await sleep(2000)
-
     }
     await pages.keyboard.press('Enter');
 

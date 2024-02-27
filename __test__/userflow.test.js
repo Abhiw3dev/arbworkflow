@@ -14,11 +14,11 @@ describe('First User Flow Test', () => {
     test('Login and Integration Test', async () => {
         dotenv.config();
         puppeteerExtra.use(StealthPlugin());
-        const browser = await puppeteerExtra.launch({ headless: "new", args: ['--start-maximized','--no-sandbox', '--disable-setuid-sandbox'], defaultViewport: null });
+        const browser = await puppeteerExtra.launch({ headless:false, args: ['--start-maximized','--no-sandbox', '--disable-setuid-sandbox'], defaultViewport: null });
         const pages = await browser.newPage();
         console.log('Logging in to Gmail');
         await googleLogin(pages, sleep);
-        await sleep(40000);
+        await sleep(10000);
 
 
         console.log('Beginning test on next.appreviewbot.com');
