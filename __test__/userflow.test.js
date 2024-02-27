@@ -18,7 +18,7 @@ describe('First User Flow Test', () => {
         const pages = await browser.newPage();
         console.log('Logging in to Gmail');
         await googleLogin(pages, sleep);
-        await sleep(30000);
+        await sleep(40000);
 
 
         console.log('Beginning test on next.appreviewbot.com');
@@ -30,7 +30,7 @@ describe('First User Flow Test', () => {
         console.log('> Initiating the Login Process');
 
         await loginHandler(page);
-        await sleep(2000);
+        await sleep(20000);
 
         console.log('> Searching for the application');
         await page.click('input[placeholder="Type your app name to get started"]', { delay: 500 });
