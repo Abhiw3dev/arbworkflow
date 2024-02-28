@@ -1,5 +1,4 @@
 {
-  "type": "module",
   "dependencies": {
     "clipboard": "^2.0.11",
     "clipboardy": "^2.3.0",
@@ -14,7 +13,9 @@
   "scripts": {
     "start": "node test/arbSearch.js",
     "arb": "node src/arbScript.js ",
-    "test": "jest"
+    "test": "jest",
+    "arblogin": "node signInCookies/nextArbLogin.js",
+    "slack": "node signInCookies/slack.js"
   },
   "jest": {
     "testEnvironment": "node",

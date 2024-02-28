@@ -1,4 +1,4 @@
-export const sleep = async function sleep(ms) {
+const sleep = async function sleep(ms) {
     return new Promise((resolve) => {
         setTimeout(resolve, ms);
     });
