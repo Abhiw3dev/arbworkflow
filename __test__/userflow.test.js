@@ -40,7 +40,7 @@ describe('First User Flow Test', () => {
         }catch(error){
             console.error('Error during the login process: ', error)
         }
-        await sleep(30000)
+        await sleep(20000)
 
         if (fs.existsSync(cookiesSlackPath)) {
             const slackpage = await browser.newPage();
@@ -70,7 +70,7 @@ describe('First User Flow Test', () => {
         await sleep(10000);
         loginHandler(page)
 
-        await sleep(90000)
+        await sleep(130000)
         console.log('> Searching for the application');
         await page.click('input[placeholder="Type your app name to get started"]', { delay: 500 });
         await page.type('input[placeholder="Type your app name to get started"]', 'facebook');

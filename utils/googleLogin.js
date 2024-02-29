@@ -13,13 +13,13 @@ const testarbGmailLogin = (async (pages, sleep) => {
     await pages.type('input[type="email"]', googleUsername);
     await pages.keyboard.press('Enter');
     console.log('  > Google Email ID entered: ', googleUsername)
-    await sleep(8000)
+    await sleep(10000)
 
     await pages.click('input[class="whsOnd zHQkBf"]')
     await pages.type('input[class="whsOnd zHQkBf"]', googlePassword);
     await pages.keyboard.press('Enter');
     console.log('  > Google Email ID Password entered: ###########', )
-    await sleep(8000)
+    await sleep(10000)
 
     console.log('  > SignIn to gmail account success ')
     
