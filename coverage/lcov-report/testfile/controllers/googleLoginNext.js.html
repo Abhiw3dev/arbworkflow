@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">53.84% </span>
+                <span class="strong">53.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/26</span>
+                <span class='fraction'>16/30</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">53.84% </span>
+                <span class="strong">53.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/26</span>
+                <span class='fraction'>16/30</span>
             </div>
         
             
@@ -107,12 +107,22 @@
 <a name='L42'></a><a href='#L42'>42</a>
 <a name='L43'></a><a href='#L43'>43</a>
 <a name='L44'></a><a href='#L44'>44</a>
-<a name='L45'></a><a href='#L45'>45</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -133,25 +143,31 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js"> 
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"> 
 const sleep = require('../../utils/sleep.js')
  
 &nbsp;
@@ -160,36 +176,44 @@ const sleep = require('../../utils/sleep.js')
 const Next_GoogleLogintHandler = async (page) =&gt; {
     const loginButton= 'a[class="text-xs md:text-base px-2 py-1 border-none text-black "]'
     await page.click(loginButton)
+    console.log('  &gt; Login button clicked')
     await sleep(5000)
     await page.click('button[class="my-2 w-max bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-red-300 focus:outline-none text-gray-800 text-sm font-medium px-4 py-2 rounded flex items-center space-x-2 transition-colors duration-200"]')
-    await sleep(10000)
+    console.log('  &gt; Login with google clicked')
+    await sleep(60000)
     const newUrl = page.url();
+    console.log('Navigated page url',newUrl)
     console.log(' &gt; Validating the URL for correct navigation')
   // Verify if the navigation was successful
     if (newUrl === 'https://next.appreviewbot.com/') {
-        console.log('  &gt; Navigated to the correct page.');
+        console.log('  &gt; Navigated to the correct page.', newUrl);
         await sleep(2000)
         console.log('  &gt; Login successful')
-    } 
-    else <span class="missing-if-branch" title="else path not taken" >E</span>{
-<span class="cstat-no" title="statement not covered" >        console.log('  &gt; Not navigated to the expected page.');</span>
+    } <span class="missing-if-branch" title="else path not taken" >E</span>
+    else<span class="cstat-no" title="statement not covered" > {</span>
+<span class="cstat-no" title="statement not covered" >        console.log('  &gt; N</span>ot navigated to the expected page.');
 <span class="cstat-no" title="statement not covered" >        await sleep(2000)</span>
 <span class="cstat-no" title="statement not covered" >        console.log("  &gt; Navigating to the Login page again")</span>
-<span class="cstat-no" title="statement not covered" >        await page.goto('https://next.appreviewbot.com/login/')</span>
-        
-<span class="cstat-no" title="statement not covered" >        await page.click('button[class="my-2 w-max bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-red-300 focus:outline-none text-gray-800 text-sm font-medium px-4 py-2 rounded flex items-center space-x-2 transition-colors duration-200"]')</span>
+        await page.goto('https://next.appreviewbot.com/login/')
 &nbsp;
+        <span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >        await page.click('b</span>utton[class="my-2 w-max bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-red-300 focus:outline-none text-gray-800 text-sm font-medium px-4 py-2 rounded flex items-center space-x-2 transition-colors duration-200"]')
+        await sleep(20000)<span class="cstat-no" title="statement not covered" ></span>
+        const secondnewUrl = page.url();
+<span class="cstat-no" title="statement not covered" >        console.log('navigated URL at second time',secondne</span>wUrl)
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        console.log('   &gt; Second attempt: Email entered ')</span>
-         
-<span class="cstat-no" title="statement not covered" >        await sleep(8000)</span>
-<span class="cstat-no" title="statement not covered" >        if(newUrl.includes('https://next.appreviewbot.com/')) {</span>
-<span class="cstat-no" title="statement not covered" >            console.log('   &gt; Button click navigated to the correct page.');</span>
-<span class="cstat-no" title="statement not covered" >            await sleep(2000)</span>
-<span class="cstat-no" title="statement not covered" >            console.log('   &gt; Second Attempt: Login successful')</span>
-         
+<span class="cstat-no" title="statement not covered" >        console.log('   &gt; </span>Second attempt: Email entered ')
+        <span class="cstat-no" title="statement not covered" > </span>
+        awai<span class="cstat-no" title="statement not covered" >t sleep(8000)</span>
+        if(s<span class="cstat-no" title="statement not covered" >econdnewUrl.includ</span>es('https://next.appreviewbot.com/')) {
+<span class="cstat-no" title="statement not covered" >            console.log('   &gt; Button click navigated to the corre</span>ct page.');
+            await sleep(2000)
+            console.log('   &gt; Second Attempt: Login successful')
+        <span class="cstat-no" title="statement not covered" > </span>
         }else{
-<span class="cstat-no" title="statement not covered" >        console.log("Try again with correct URL") </span>
+        console.log("Try again with correct URL") 
+&nbsp;
+        
         }
 &nbsp;
     }
@@ -202,7 +226,7 @@ module.exports = Next_GoogleLogintHandler</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-02-29T10:49:39.904Z
+                at 2024-02-29T12:21:21.800Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
