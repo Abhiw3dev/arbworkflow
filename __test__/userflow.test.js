@@ -70,7 +70,7 @@ describe('First User Flow Test', () => {
         await sleep(10000);
         loginHandler(page)
 
-        await sleep(130000)
+        await sleep(210000)
         console.log('> Searching for the application');
         await page.click('input[placeholder="Type your app name to get started"]', { delay: 500 });
         await page.type('input[placeholder="Type your app name to get started"]', 'facebook');
