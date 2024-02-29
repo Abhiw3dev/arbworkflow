@@ -65,12 +65,12 @@ describe('First User Flow Test', () => {
         await sleep(10000)
         const page = await browser.newPage();
         console.log('Beginning test on next.appreviewbot.com');
-        await page.goto('https://next.appreviewbot.com/', { waitUntil: 'load', timeout: 60000 });
+        await page.goto('https://next.appreviewbot.com/login/', { waitUntil: 'load', timeout: 60000 });
         console.log("> Reached target site");
         await sleep(10000);
         loginHandler(page)
 
-        await sleep(210000)
+        await sleep(120000)
         console.log('> Searching for the application');
         await page.click('input[placeholder="Type your app name to get started"]', { delay: 500 });
         await page.type('input[placeholder="Type your app name to get started"]', 'facebook');
