@@ -15,7 +15,8 @@
     "arb": "node src/arbScript.js ",
     "test": "jest",
     "arblogin": "node signInCookies/nextArbLogin.js",
-    "slack": "node signInCookies/slack.js"
+    "slack": "node signInCookies/slack.js",
+    "google": "node signInCookies/googleAccount.js"
   },
   "jest": {
     "testEnvironment": "node",

@@ -22,6 +22,7 @@ const testarbGmailLogin = (async (pages, sleep) => {
     await sleep(8000)
 
     console.log('  > SignIn to gmail account success ')
+    
  
 })
 
