@@ -67,7 +67,7 @@ puppeteerExtra.use(StealthPlugin());
 const googleAccount = async () => {
     try {
         const browser = await puppeteerExtra.launch({
-            headless: true, // Run in headless mode
+            headless: false, // Run in headless mode
             args: ['--start-maximized', '--no-sandbox', '--disable-setuid-sandbox'],
             defaultViewport: null
         });
@@ -99,8 +99,12 @@ const googleAccount = async () => {
 
         console.log('  > Signed in to the Gmail account successfully');
 
-        const pages = browser.newPage()
-        await pages.goto('')
+         
+        await page.goto('https://next.appreviewbot.com/login/')
+
+        await page.click('button[class="my-2 w-max bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-red-300 focus:outline-none text-gray-800 text-sm font-medium px-4 py-2 rounded flex items-center space-x-2 transition-colors duration-200"]')
+        await sleep(22000)
+
 
   // Save cookies to a file after successful login
   const googleCookies = await page.cookies();
@@ -114,6 +118,7 @@ const googleAccount = async () => {
 } catch (error) {
     console.error('Error during Google login:', error);
 }
+    
 };
 
 googleAccount().catch(console.error);
