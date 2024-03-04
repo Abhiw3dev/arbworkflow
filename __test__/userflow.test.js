@@ -163,6 +163,11 @@ describe('First User Flow Test', () => {
 
         try {
             const page = await browser.newPage();
+            await page.setViewport({
+                width: 1920, // Set width to match screen resolution
+                height: 1080, // Set height to match screen resolution
+                deviceScaleFactor: 1,
+              });
             googleLogin(page, sleep);
         } catch (error) {
             console.error('Error during the login process: ', error);
@@ -170,28 +175,33 @@ describe('First User Flow Test', () => {
 
         await sleep(60000);
 
-        // if (fs.existsSync(cookiesSlackPath)) {
-        //     const slackpage = await browser.newPage();
-        //     const cookies = JSON.parse(fs.readFileSync(cookiesSlackPath, 'utf-8'));
-        //     for (let cookie of cookies) {
-        //         await slackpage.setCookie(cookie);
-        //     }
-        //     console.log('Cookies loaded successfully for Slack.');
+        if (fs.existsSync(cookiesSlackPath)) {
+            const slackpage = await browser.newPage();
+            const cookies = JSON.parse(fs.readFileSync(cookiesSlackPath, 'utf-8'));
+            for (let cookie of cookies) {
+                await slackpage.setCookie(cookie);
+            }
+            console.log('Cookies loaded successfully for Slack.');
 
-        //     await slackpage.goto('https://slack.com/intl/en-in/connect');
-        //     await sleep(2000);
-        //     await slackpage.click('button[class="c-button v--primary v--with-dropdown"]');
-        //     await sleep(1000);
-        //     await slackpage.click('span[class="o-media-object__content c-nav__workspace--name"]');
-        //     await sleep(5000);
+            // await slackpage.goto('https://slack.com/intl/en-in/connect');
+            // await sleep(2000);
+            // await slackpage.click('button[class="c-button v--primary v--with-dropdown"]');
+            // await sleep(1000);
+            // await slackpage.click('span[class="o-media-object__content c-nav__workspace--name"]');
+            // await sleep(5000);
             
-        // } else {
-        //     console.log('No cookies file found for Slack.');
-        //     await browser.close();
-        // }
+        } else {
+            console.log('No cookies file found for Slack.');
+            await browser.close();
+        }
  
         await sleep(10000);
         const page = await browser.newPage();
+        await page.setViewport({
+            width: 1920, // Set width to match screen resolution
+            height: 1080, // Set height to match screen resolution
+            deviceScaleFactor: 1,
+          });
         console.log('Beginning test on next.appreviewbot.com');
         await page.goto('https://next.appreviewbot.com/login/', { waitUntil: 'load', timeout: 60000 });
         console.log("> Reached target site");

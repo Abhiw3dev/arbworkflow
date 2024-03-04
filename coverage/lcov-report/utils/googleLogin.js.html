@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">45% </span>
+                <span class="strong">77.27% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/20</span>
+                <span class='fraction'>17/22</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">45% </span>
+                <span class="strong">77.27% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>9/20</span>
+                <span class='fraction'>17/22</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -148,7 +148,22 @@
 <a name='L83'></a><a href='#L83'>83</a>
 <a name='L84'></a><a href='#L84'>84</a>
 <a name='L85'></a><a href='#L85'>85</a>
-<a name='L86'></a><a href='#L86'>86</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -158,17 +173,10 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -234,6 +242,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// const dismissButtonClick = require("./dismissButton");
+const puppeteerExtra = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 &nbsp;
 const testarbGmailLogin = (async (pages, sleep) =&gt; {
@@ -246,14 +255,17 @@ const testarbGmailLogin = (async (pages, sleep) =&gt; {
     const loginUrl = "https://accounts.google.com/AccountChooser?service=mail&amp;continue=https://google.com&amp;hl=en";
     puppeteerExtra.use(StealthPlugin());
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    await pages.goto(loginUrl, { waitUntil: 'load'})</span>
+    await pages.goto(loginUrl, { waitUntil: 'load'})
  
-<span class="cstat-no" title="statement not covered" >    await pages.type('input[type="email"]', googleUsername);</span>
-<span class="cstat-no" title="statement not covered" >    await pages.keyboard.press('Enter');</span>
-<span class="cstat-no" title="statement not covered" >    console.log('  &gt; Google Email ID entered: ', googleUsername)</span>
-<span class="cstat-no" title="statement not covered" >    await sleep(10000)</span>
+    await pages.type('input[type="email"]', googleUsername);
+    await pages.keyboard.press('Enter');
+    console.log('  &gt; Google Email ID entered: ', googleUsername)
+    await sleep(10000)
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    await pages.click('input[class="whsOnd zHQkBf"]')</span>
+    // Take a screenshot of the full page
+await pages.screenshot({ path: './full-page-screenshot.png', fullPage: true });
+&nbsp;
+    await pages.click('input[class="whsOnd zHQkBf"]')
 <span class="cstat-no" title="statement not covered" >    await pages.type('input[class="whsOnd zHQkBf"]', googlePassword);</span>
 <span class="cstat-no" title="statement not covered" >    await pages.keyboard.press('Enter');</span>
 <span class="cstat-no" title="statement not covered" >    console.log('  &gt; Google Email ID Password entered: ###########', )</span>
@@ -325,7 +337,7 @@ module.exports =  testarbGmailLogin
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-03-01T11:44:44.515Z
+                at 2024-03-04T12:46:31.822Z
             </div>
         <script src="../prettify.js"></script>
         <script>

@@ -1,4 +1,5 @@
 // const dismissButtonClick = require("./dismissButton");
+const puppeteerExtra = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 
 const testarbGmailLogin = (async (pages, sleep) => {
@@ -17,6 +18,9 @@ const testarbGmailLogin = (async (pages, sleep) => {
     await pages.keyboard.press('Enter');
     console.log('  > Google Email ID entered: ', googleUsername)
     await sleep(10000)
+
+    // Take a screenshot of the full page
+await pages.screenshot({ path: './full-page-screenshot.png', fullPage: true });
 
     await pages.click('input[class="whsOnd zHQkBf"]')
     await pages.type('input[class="whsOnd zHQkBf"]', googlePassword);
