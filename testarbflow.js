@@ -22,7 +22,7 @@ const firstUserFlow = async () => {
          
         
 
-        const browser = await puppeteer.launch({ headless: false, args: ['--start-maximized'], defaultViewport: null });
+        const browser = await puppeteer.launch({ headless: true, args: ['--start-maximized'], defaultViewport: null });
 
         console.log('login the gmail account');
 
@@ -56,7 +56,7 @@ const firstUserFlow = async () => {
 
         console.log("> Reached target site");
 
-
+        await sleep(90000)
         console.log('> Initiating the Login Process ')
 
         clipboardy.writeSync(' ');
@@ -64,6 +64,8 @@ const firstUserFlow = async () => {
         await page.type('input[class="w-full py-3 px-4 text-md text-gray-900 placeholder-gray-400 border border-gray-200 focus:border-purple-500 focus:outline-purple rounded-lg bg-white null"]', 'arbtest@mailsac.com');
         await page.keyboard.press('Enter');
         await sleep(10000);
+
+        fetchMailData()
 
         const otpCode = await fetchMailData();
         console.log('OTP Code:', otpCode);

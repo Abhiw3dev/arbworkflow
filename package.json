@@ -21,11 +21,9 @@
     "google": "node signInCookies/googleAccount.js"
   },
   "jest": {
-    "testEnvironment": "node",
     "preset": "jest-puppeteer",
-    "setupFilesAfterEnv": [
-      "<rootDir>/jest.setup.js"
-    ],
+     
+    
     "reporters": [
       "default",
       [

@@ -298,11 +298,10 @@ describe('First User Flow Test', () => {
         dotenv.config();
         puppeteer.use(StealthPlugin());
 
-        firstUserFlow()
 
-        await sleep(500000)
+        
 
-        const browser = await puppeteer.launch({ headless: false, args: ['--start-maximized'], defaultViewport: null });
+        const browser = await puppeteer.launch({ headless: true, args: ['--start-maximized'], defaultViewport: null });
 
         console.log('login the gmail account');
 
@@ -396,7 +395,7 @@ describe('First User Flow Test', () => {
         await page.keyboard.press('Enter')
         console.log(' > Clicked on "Allow" button')
 
-        await sleep(25000)
+        await sleep(15000)
         console.log(' > Waiting for few seconds until Alerts to appear')
 
         const innerText = await page.evaluate(() => {
@@ -430,3 +429,19 @@ describe('First User Flow Test', () => {
         
     }, 600000); // Set timeout to 10 minutes (600000 milliseconds)
 });
+
+
+
+
+
+
+
+
+/*
+"jest": {
+    "testEnvironment": "node",
+    "preset": "jest-puppeteer",
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest.setup.js"
+    ],
+*/
