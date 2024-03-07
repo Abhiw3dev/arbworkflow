@@ -79,13 +79,18 @@
 // export default fetchMailData;
 
 
-const puppeteer = require('puppeteer');
+// const puppeteer = require('puppeteer');
+// const clipboardy = require('clipboardy');
+// const sleep = require('../utils/sleep.js');
+const puppeteer = require('puppeteer-extra');
+const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 const clipboardy = require('clipboardy');
 const sleep = require('../utils/sleep.js');
 
 const fetchMailData = async () => {
      
-    
+      puppeteer.use(StealthPlugin());
+
       const browser = await puppeteer.launch({ headless: true, args: ['--start-maximized'], defaultViewport: null });
       const mailpage = await browser.newPage();
       await mailpage.setViewport({
@@ -125,33 +130,31 @@ const fetchMailData = async () => {
       const mailContentSelector = 'div[ng-bind-html="trustAsHtml(msg.body)"]';
       await mailpage.waitForSelector(mailContentSelector, { visible: true });
 
+     
+
+
+
+
       //experiment
       await mailpage.focus(mailContentSelector);
       await mailpage.keyboard.down('Control');
       await mailpage.keyboard.press('KeyA');
       await mailpage.keyboard.up('Control');
       console.log('text selected')
-      await sleep(2000)
-      await mailpage.screenshot({ path: './textselected.png', fullPage: true });
 
-      await sleep(5000)
+      await sleep(1000)
       // Simulate pressing Control+C (or Command+C on macOS) to copy the selected text
       await mailpage.keyboard.down('Control');
       await mailpage.keyboard.press('KeyC');
       await mailpage.keyboard.up('Control');
       console.log('text copied')
+      await sleep(2000)
+      await mailpage.screenshot({ path: './textselected.png', fullPage: true });
 
 // Retrieve the copied text from the clipboard using clipboardy
 const copiedText = clipboardy.readSync();
 
 console.log('Copied text:', copiedText);  
-
-
-
-
-
-
-
 
 
 
