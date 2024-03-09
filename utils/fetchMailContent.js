@@ -91,7 +91,7 @@ const fetchMailData = async () => {
      
       puppeteer.use(StealthPlugin());
 
-      const browser = await puppeteer.launch({ headless: true, args: ['--start-maximized'], defaultViewport: null });
+      const browser = await puppeteer.launch({ headless: false, args: ['--start-maximized'], defaultViewport: null });
       const mailpage = await browser.newPage();
       await mailpage.setViewport({
         width: 1920, // Set width to match screen resolution

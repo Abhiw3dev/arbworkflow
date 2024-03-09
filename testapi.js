@@ -1,19 +1,13 @@
 const puppeteer = require('puppeteer-extra');
-const StealthPlugin = require('puppeteer-extra-plugin-stealth');
-const clipboardy = require('clipboardy');
 const axios = require('axios'); // Import axios for making API calls
 const sleep = require('./utils/sleep.js');
 
 const fetchMailData = async () => {
-    puppeteer.use(StealthPlugin());
+    
 
     const browser = await puppeteer.launch({ headless: false, args: ['--start-maximized'], defaultViewport: null });
     const mailpage = await browser.newPage();
-    await mailpage.setViewport({
-        width: 1920, // Set width to match screen resolution
-        height: 1080, // Set height to match screen resolution
-        deviceScaleFactor: 1,
-    });
+     
     console.log('Visiting the temporary email service and getting the OTP for Login purpose');
     const url = 'https://mailsac.com/';
     await mailpage.goto(url, { waitUntil: 'load' });
@@ -24,9 +18,6 @@ const fetchMailData = async () => {
     await mailpage.keyboard.press('Enter');
     await sleep(6000);
     console.log('> Logged in to the mail');
-    const emailpage = mailpage.url();
-
-    console.log(emailpage);
 
     await sleep(20000);
 
@@ -49,18 +40,15 @@ const fetchMailData = async () => {
         return mailContentElement.textContent.trim();
     });
 
-// Set up headers with your API key
+    // Set up headers with your API key
     const headers = {
-    'Content-Type': 'body',
-    'Authorization': 'k_zrny13BDXC9D4NpmtUUbirDNuClEPUY6DtJETP4a5'
-};
-
-
-
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer k_zrny13BDXC9D4NpmtUUbirDNuClEPUY6DtJETP4a5' 
+    };
 
     // Make API call to process text content
     try {
-        const response = await axios.post('https://mailsac.com/api/body/arbtest@mailsac.com/n1rmzIDUZ0dI4pllxJMHxkQA-0', { textContent },{headers});
+        const response = await axios.post('https://mailsac.com/api/body/arbtest@mailsac.com', { textContent }, { headers });
         const responseData = response.data;
         console.log('API Response:', responseData);
 
@@ -73,5 +61,6 @@ const fetchMailData = async () => {
     await browser.close();
     console.log('> Browser closed');
 };
-fetchMailData()
 
+// Call the function to fetch mail data
+fetchMailData();
