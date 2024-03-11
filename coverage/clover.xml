@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1709992862076" clover="3.2.0">
-  <project timestamp="1709992862076" name="All files">
+<coverage generated="1710190881529" clover="3.2.0">
+  <project timestamp="1710190881529" name="All files">
     <metrics statements="150" coveredstatements="62" conditionals="12" coveredconditionals="2" methods="5" coveredmethods="3" elements="167" coveredelements="67" complexity="0" loc="150" ncloc="150" packages="2" files="3" classes="3"/>
     <package name="puppeteer-githubActions">
       <metrics statements="91" coveredstatements="7" conditionals="8" coveredconditionals="0" methods="2" coveredmethods="0"/>
