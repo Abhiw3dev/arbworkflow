@@ -352,19 +352,28 @@ describe('First User Flow Test', () => {
         await page.type('input[class="w-full py-3 px-4 text-lg text-gray-900 placeholder-gray-400 border border-gray-200 focus:border-purple-500 focus:outline-purple rounded-lg  bg-white"]', otpCode);
 
         await page.screenshot({ path: './otp-screenshot.png', fullPage: true });
-        await sleep(1000)
+        await sleep(2000)
         console.log(' > OTP pasted')
         await sleep(1000)
         await page.screenshot({ path: './otp overview-screenshot.png', fullPage: true });
+        await sleep(5000)
 
-        await page.click('span[class="relative"]')
-
-        await sleep(30000)
-
+        await page.click('button[class="relative group block w-full  py-3 px-5 text-center text-sm font-semibold text-orange-50 bg-[#5469D4] rounded overflow-hidden null"]')
+        await sleep(20000)
+ 
         const url = page.url()
         console.log(url)
         await page.screenshot({ path: './after otp-screenshot.png', fullPage: true });
 
+        if(url.includes('https://next.appreviewbot.com/login/')){
+            console.log('> Navigation is not correct')
+            await browser.close()
+        }else{
+            console.log('> Navigated to correct URL and Proceeding with searching the application')
+        }
+
+
+        await sleep(4000)
         await page.click('input[placeholder="Type your app name to get started"]', { delay: 500 });
         await page.type('input[placeholder="Type your app name to get started"]', 'facebook');
         console.log('> An application is searched ')

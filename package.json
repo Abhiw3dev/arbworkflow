@@ -19,7 +19,9 @@
     "arblogin": "node signInCookies/nextArbLogin.js",
     "slack": "node signInCookies/slack.js",
     "google": "node signInCookies/googleAccount.js",
-    "fetchmail": "node testapi.js"
+    "fetchmail": "node testapi.js",
+    "exp": "node utils/fetchMailContent.js"
+
   },
   "jest": {
     "preset": "jest-puppeteer",
