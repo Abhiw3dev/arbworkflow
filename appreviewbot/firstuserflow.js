@@ -118,7 +118,7 @@ await page.waitForSelector('div.search__results > div.search__result-container')
 
     await page.click('img[src="https://platform.slack-edge.com/img/add_to_slack.png"]')
     console.log('> Clicked on "Add to Slack" ')
-    await sleep(8000)
+    await sleep(15000)
 
     await page.type('input[class="c-input_text c-select_input"]', 'arb')
     await sleep(2000)
@@ -130,37 +130,85 @@ await page.waitForSelector('div.search__results > div.search__result-container')
     await page.keyboard.press('Enter')
     console.log(' > Clicked on "Allow" button')
 
-    await sleep(40000)
+    await sleep(25000)
     console.log(' > Waiting for few seconds until Alerts to appear')
 
+    // const innerText = await page.evaluate(() => {
+    //     const targetElement = document.querySelector('div[class="alert alert--warn"] > div[class="alert__info-container"] > div[class="alert__message"]');
+    //     return targetElement ? targetElement.innerText.trim() : null;
+    // });
+
+    // const message_1 = "You are trying to track reviews for more applications than your subscription provides. Please Upgrade your plan";
+    // const message_2 = "Your app reviews will start appearing in your Slack channel momentarily! Want to monitor reviews for another app? Add it now!";
+
+    // const normalizedInnerText = innerText.replace(/\s+/g, ' ').trim();
+    // const normalizedMessage_1 = message_1.replace(/\s+/g, ' ').trim();
+    // const normalizedMessage_2 = message_2.replace(/\s+/g, ' ').trim();
+
+    // console.log('> Fetched Alert Text:', `"${normalizedInnerText}"`);
+    // console.log(' ');
+
+    // if (innerText === " You are trying to track reviews for more applications than your subscription provides. Please Upgrade your plan") {
+    //     console.log("  > Integration not successful, it requires upgrading the plan");
+    //     console.log(' ');
+    // } else if (innerText === "Your app reviews will start appearing in your Slack channel momentarily! Want to monitor reviews for another app? Add it now!") {
+    //     console.log('  > Integration successful');
+    //     console.log(' ');
+    // } else {
+    //     console.log('  > Unexpected message:',  innerText);
+    //     console.log(' ');
+    // }
+
+    // const innerTextFail = await page.evaluate(() => {
+    //     const targetElement = document.querySelector('div[class="alert alert--warn"] > div[class="alert__info-container"] > div[class="alert__title"]');
+    //     return targetElement ? targetElement.innerText.trim() : null;
+    // });
+    // console.log('innerTextFail: ' , innerTextFail)
+
+    //  if(innerTextFail.visible(true)){
+        
+    //  }
+
+// Extracting inner text from elements matching the selector
     const innerText = await page.evaluate(() => {
-        const targetElement = document.querySelector('div[class="alert__message"]');
-        return targetElement ? targetElement.innerText.trim() : null;
+    const elements = document.querySelectorAll('div[class="oauth-container"]');
+    // const texts = [];
+    let combinedText = '';
+    elements.forEach(element => {
+        const sanitizedText = element.innerText.replace(/[+\n]/g,'');
+        combinedText += sanitizedText + '  ';
+      
     });
+    // return texts;
+    return combinedText.trim(); // Remove trailing and leading whitespace
+  });
+  console.log(' ')
+  console.log('sanitizedStatement: \n',innerText)
+   
+  await sleep(2000)
+  
+  const statementToCheck ="You're all set!Your app reviews will start appearing in your Slack channel momentarily!Want to monitor reviews for another app? Add it now!"
+    console.log(' ')
+    console.log('statement to match: \n', statementToCheck)
+    console.log(' ')
 
-    const message_1 = "You are trying to track reviews for more applications than your subscription provides. Please Upgrade your plan";
-    const message_2 = "Your app reviews will start appearing in your Slack channel momentarily! Want to monitor reviews for another app? Add it now!";
+// Removing characters like '\n', '+' using regular expressions
+// const sanitizedStatement = statementToCheck.replace(/[\n+]/g, '');
 
-    const normalizedInnerText = innerText.replace(/\s+/g, ' ').trim();
-    const normalizedMessage_1 = message_1.replace(/\s+/g, ' ').trim();
-    const normalizedMessage_2 = message_2.replace(/\s+/g, ' ').trim();
 
-    console.log('> Fetched Alert Text:', `"${normalizedInnerText}"`);
-    console.log(' ');
-
-    if (innerText === "You are trying to track reviews for more applications than your subscription provides. Please Upgrade your plan") {
-        console.log("  > Integration not successful, it requires upgrading the plan");
-        console.log(' ');
-    } else if (innerText === "Your app reviews will start appearing in your Slack channel momentarily! Want to monitor reviews for another app? Add it now!") {
-        console.log('  > Integration successful');
-        console.log(' ');
-    } else {
-        console.log('  > Unexpected message:',  innerText);
-        console.log(' ');
-    }
-
+//   const statement = "You're all set! Your app reviews will start appearing in your Slack channel momentarily! Want to monitor reviews for another app? Add it now!";
+const isPresent = innerText.includes(statementToCheck);
+    if(isPresent){
+    console.log(isPresent);
+    console.log(' ')
+    console.log('test pass')
+}else{
+    console.log(' ')
+    console.log('test fails')
+}
+  
     await sleep(5000)
-    await browser.close()
+    // await browser.close()
     
  
 });
