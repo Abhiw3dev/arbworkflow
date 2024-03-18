@@ -11,7 +11,7 @@ describe('First User Flow Test', () => {
 
     test('Integration Test', async () => {
         
-    const browser = await puppeteer.launch({ headless:"new", args: ['--start-maximized'], defaultViewport: null });
+    const browser = await puppeteer.launch({ headless:'new', args: ['--start-maximized'], defaultViewport: null });
     
     const cookiesSlackPath = './signInCookies/slackCookies.json'
 
@@ -54,63 +54,69 @@ describe('First User Flow Test', () => {
     await sleep(1000)
     console.log("> login credentials entered")
 
-    //submit button
-    const click1 = 'input[type="submit"]'
-    const click2 = 'input[name="submit"]'
-    const click3 = 'input[value="Continue"]'
-    if(click1){
-    await page.click(click1)
-    console.log('clicked 1st time')
-    await sleep(3000)
-    }else if(click2){
-    await page.click(click2)
-    console.log('clicked 2nd time')
-    await sleep(3000)
-    }else if(click3){
-    await page.click(click3)
-    console.log('clicked 3rd time')
-    }else{
-        console.log('submit button not working or clickable')
+    for(let i = 0; i<2; i++){
+        await page.keyboard.press('Tab')
+        await sleep(800)
     }
-    await sleep(30000)
-    // const newUrl = page.url();
-    // console.log("> Capturing the URL of the navigated page after the login")
-    // console.log('> Captured URL: ',newUrl)
+    await page.keyboard.press('Enter')
 
-    // // Verify if the navigation was successful
-    // if (newUrl===('https://appreviewbot.com/')) {
-    //     console.log('> Navigated to the correct page.');
-    //     await sleep(1000)
-    //     console.log('> Login sucessfull')
+    // //submit button
+    // const click1 = 'input[type="submit"]'
+    // const click2 = 'input[name="submit"]'
+    // const click3 = 'input[value="Continue"]'
+    // if(click1){
+    // await page.click(click1)
+    // console.log('clicked 1st time')
+    // await sleep(3000)
+    // }else if(click2){
+    // await page.click(click2)
+    // console.log('clicked 2nd time')
+    // await sleep(3000)
+    // }else if(click3){
+    // await page.click(click3)
+    // console.log('clicked 3rd time')
+    // }else{
+    //     console.log('submit button not working or clickable')
     // }
-    // else {
-    //     console.log('> Button click did NOT navigate to the expected page.');
-    //     await sleep(1000)
-    //     await page.goto('https://appreviewbot.com/login')
+    await sleep(25000)
+    const newUrl = page.url();
+    console.log("> Capturing the URL of the navigated page after the login")
+    console.log('> Captured URL: ',newUrl)
 
-    //     console.log('> Attempting the login for the second time')
+    // Verify if the navigation was successful
+    if (newUrl===('https://appreviewbot.com/')) {
+        console.log('> Navigated to the correct page.');
+        await sleep(1000)
+        console.log('> Login sucessfull')
+    }
+    else {
+        console.log('> Button click did NOT navigate to the expected page.');
+        await sleep(1000)
+        await page.goto('https://appreviewbot.com/login')
 
-    //     await page.type('input[type="email"]', 'testing00@gmail.com', { delay: 150 })
-    //     await sleep(1000)
-    //     await page.type('input[type="password"]', 'testing00', { delay: 150 })
-    //     await sleep(1000)
-    //     await page.click('input[type="submit"]')
+        console.log('> Attempting the login for the second time')
 
-    //     await sleep(40000)
+        await page.type('input[type="email"]', 'testing00@gmail.com', { delay: 150 })
+        await sleep(1000)
+        await page.type('input[type="password"]', 'testing00', { delay: 150 })
+        await sleep(1000)
+        await page.click('input[type="submit"]')
 
-    //     // Verify if the navigation was successful
-    //     if (newUrl ===('https://appreviewbot.com/')) {
-    //         console.log('> Navigated to the correct page.');
-    //         await sleep(2000)
-    //         console.log('> Second attempt: Login sucessfull')
-    //     } else {
-    //         console.log('> Second attempt: Login failed')
+        await sleep(25000)
 
-    //         await browser.close()
-    //     }
-    // }
+        // Verify if the navigation was successful
+        if (newUrl ===('https://appreviewbot.com/')) {
+            console.log('> Navigated to the correct page.');
+            await sleep(2000)
+            console.log('> Second attempt: Login sucessfull')
+        } else {
+            console.log('> Second attempt: Login failed')
 
-    await sleep(30000)
+            await browser.close()
+        }
+    }
+
+    await sleep(10000)
     await page.click('input[placeholder="Type your app name to get started"]', { delay: 500 });
     await page.type('input[placeholder="Type your app name to get started"]', 'facebook');
     console.log('> An application is searched ')
