@@ -35,7 +35,7 @@ describe('First User Flow Test', () => {
 
     console.log("> Reached target site");
 
-    await sleep(15000);
+    await sleep(5000);
 
     const loginButton = 'a[class="nav__button nav__button--link"]'
     await page.click(loginButton)
@@ -51,7 +51,7 @@ describe('First User Flow Test', () => {
     //submit button
     await page.click('input[type="submit"]')
 
-    await sleep(5000)
+    await sleep(20000)
     const newUrl = page.url();
     console.log("> Capturing the URL of the navigated page after the login")
 
@@ -74,7 +74,7 @@ describe('First User Flow Test', () => {
         await sleep(1000)
         await page.click('input[type="submit"]')
 
-        await sleep(5000)
+        await sleep(20000)
 
         // Verify if the navigation was successful
         if (newUrl === 'https://appreviewbot.com/') {
@@ -88,7 +88,7 @@ describe('First User Flow Test', () => {
         }
     }
 
-    await sleep(2000)
+    await sleep(30000)
     await page.click('input[placeholder="Type your app name to get started"]', { delay: 500 });
     await page.type('input[placeholder="Type your app name to get started"]', 'facebook');
     console.log('> An application is searched ')
@@ -121,7 +121,7 @@ describe('First User Flow Test', () => {
     await page.keyboard.press('Enter')
     console.log(' > Clicked on "Allow" button')
 
-    await sleep(15000)
+    await sleep(20000)
     console.log(' > Waiting for few seconds until Alerts to appear')
 
     // Extracting inner text from elements matching the selector
@@ -138,7 +138,7 @@ describe('First User Flow Test', () => {
     console.log(' ')
     console.log('sanitizedStatement: \n', innerText)
 
-    await sleep(2000)
+    await sleep(5000)
 
     const statement1ToCheck = "You're all set!Your app reviews will start appearing in your Slack channel momentarily!Want to monitor reviews for another app? Add it now!"
     const statement2ToCheck = "Limit of Existing Plan Reached!You are trying to track reviews for more applications than your subscription provides.Want to monitor reviews for another app? Add it now!"
