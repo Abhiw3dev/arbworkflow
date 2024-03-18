@@ -11,7 +11,8 @@ describe('First User Flow Test', () => {
 
     test('Integration Test', async () => {
         
-    const browser = await puppeteer.launch({ headless: true, args: ['--start-maximized'], defaultViewport: null });
+    const browser = await puppeteer.launch({ headless:"new", args: ['--start-maximized'], defaultViewport: null });
+    
     const cookiesSlackPath = './signInCookies/slackCookies.json'
 
     if (fs.existsSync(cookiesSlackPath)) {
@@ -28,6 +29,11 @@ describe('First User Flow Test', () => {
 
     await sleep(2000)
     const page = await browser.newPage();
+    await page.setViewport({
+        width: 1920,
+        height: 1080,
+        deviceScaleFactor: 1,
+    });
 
     console.log("Begin to test the appreviewbot.com");
 
@@ -50,6 +56,13 @@ describe('First User Flow Test', () => {
 
     //submit button
     await page.click('input[type="submit"]')
+    console.log('clicked 1st time')
+    await sleep(1000)
+    await page.click('input[name="submit"]')
+    console.log('clicked 2nd time')
+    await sleep(1000)
+    await page.click('input[value="Continue"]')
+    console.log('clicked 3rd time')
 
     await sleep(20000)
     const newUrl = page.url();
