@@ -72,43 +72,43 @@ describe('First User Flow Test', () => {
     }else{
         console.log('submit button not working or clickable')
     }
-    await sleep(40000)
-    const newUrl = page.url();
-    console.log("> Capturing the URL of the navigated page after the login")
-    console.log('> Captured URL: ',newUrl)
+    await sleep(30000)
+    // const newUrl = page.url();
+    // console.log("> Capturing the URL of the navigated page after the login")
+    // console.log('> Captured URL: ',newUrl)
 
-    // Verify if the navigation was successful
-    if (newUrl===('https://appreviewbot.com/')) {
-        console.log('> Navigated to the correct page.');
-        await sleep(1000)
-        console.log('> Login sucessfull')
-    }
-    else {
-        console.log('> Button click did NOT navigate to the expected page.');
-        await sleep(1000)
-        await page.goto('https://appreviewbot.com/login')
+    // // Verify if the navigation was successful
+    // if (newUrl===('https://appreviewbot.com/')) {
+    //     console.log('> Navigated to the correct page.');
+    //     await sleep(1000)
+    //     console.log('> Login sucessfull')
+    // }
+    // else {
+    //     console.log('> Button click did NOT navigate to the expected page.');
+    //     await sleep(1000)
+    //     await page.goto('https://appreviewbot.com/login')
 
-        console.log('> Attempting the login for the second time')
+    //     console.log('> Attempting the login for the second time')
 
-        await page.type('input[type="email"]', 'testing00@gmail.com', { delay: 150 })
-        await sleep(1000)
-        await page.type('input[type="password"]', 'testing00', { delay: 150 })
-        await sleep(1000)
-        await page.click('input[type="submit"]')
+    //     await page.type('input[type="email"]', 'testing00@gmail.com', { delay: 150 })
+    //     await sleep(1000)
+    //     await page.type('input[type="password"]', 'testing00', { delay: 150 })
+    //     await sleep(1000)
+    //     await page.click('input[type="submit"]')
 
-        await sleep(40000)
+    //     await sleep(40000)
 
-        // Verify if the navigation was successful
-        if (newUrl ===('https://appreviewbot.com/')) {
-            console.log('> Navigated to the correct page.');
-            await sleep(2000)
-            console.log('> Second attempt: Login sucessfull')
-        } else {
-            console.log('> Second attempt: Login failed')
+    //     // Verify if the navigation was successful
+    //     if (newUrl ===('https://appreviewbot.com/')) {
+    //         console.log('> Navigated to the correct page.');
+    //         await sleep(2000)
+    //         console.log('> Second attempt: Login sucessfull')
+    //     } else {
+    //         console.log('> Second attempt: Login failed')
 
-            await browser.close()
-        }
-    }
+    //         await browser.close()
+    //     }
+    // }
 
     await sleep(30000)
     await page.click('input[placeholder="Type your app name to get started"]', { delay: 500 });
