@@ -78,7 +78,7 @@ describe('First User Flow Test', () => {
     // }else{
     //     console.log('submit button not working or clickable')
     // }
-    await sleep(25000)
+    await sleep(60000)
     const newUrl = page.url();
     console.log("> Capturing the URL of the navigated page after the login")
     console.log('> Captured URL: ',newUrl)
@@ -100,9 +100,15 @@ describe('First User Flow Test', () => {
         await sleep(1000)
         await page.type('input[type="password"]', 'testing00', { delay: 150 })
         await sleep(1000)
-        await page.click('input[type="submit"]')
+        // await page.click('input[type="submit"]')
+        for(let i = 0; i<2; i++){
+            await page.keyboard.press('Tab')
+            await sleep(800)
+        }
+        await page.keyboard.press('Enter')
+    
 
-        await sleep(25000)
+        await sleep(40000)
 
         // Verify if the navigation was successful
         if (newUrl ===('https://appreviewbot.com/')) {
@@ -191,6 +197,6 @@ describe('First User Flow Test', () => {
     await sleep(5000)
     await browser.close()
     
-},200000);
+},500000);
 });
 
