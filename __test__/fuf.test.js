@@ -187,7 +187,7 @@ describe('First User Flow Test', () => {
         console.log('Integration successfull')
     } else if (isPresent = innerText.includes(statement2ToCheck)) {
         console.log(' ')
-        console.log('Matdched statement: ', statement2ToCheck)
+        console.log('Matched statement: ', statement2ToCheck)
         console.log(' ')
         console.log('Integration not successfull')
     } else {

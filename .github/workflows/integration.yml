@@ -1,0 +1,70 @@
+name: Automation ARB Search Function
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      TZ: 'Asia/Kolkata' # Set timezone to IST for the job
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Adjust the Node.js version as needed
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests with Jest
+        run: npm test
+
+      - name: Upload Jest Coverage Reports
+        uses: actions/upload-artifact@v4.3.0
+        if: always()
+        with:
+          name: test-reports
+          path: coverage  # Specify the path where Jest stores coverage reports
+
+      - name: Upload a Jest test-report Artifact
+        if: always()
+        uses: actions/upload-artifact@v4.3.0
+        with:
+          name: jest-html-reporter
+          path: newReport  # Specify the path to your Jest test report directory
+
+      - name: Upload Test Logs
+        uses: actions/upload-artifact@v4.3.0
+        if: always()
+        with:
+          name: test-logs
+          path: consoleLogs  # Specify the path to your test logs directory
+
+      - name: Prepare Deployment Directory
+        if: always()
+        run: |
+          mkdir -p deploy-directory/coverage
+          cp -r coverage/* deploy-directory/coverage/
+          cp -r newReport deploy-directory/
+          cp -r consoleLogs deploy-directory/
+
+      - name: Deploy to GitHub Pages
+        if: always()
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: deploy-directory  # Specify the deployment directory
+
+      - name: Display Deployed Report Links
+        run: |
+          echo "Deployed Links for Report:"
+          echo "1. Coverage Report: 'https://abhiw3dev.github.io/arbworkflow/deploy-directory/coverage/lcov-report/index.html'"
+          echo "2. Test Report: 'https://abhiw3dev.github.io/arbworkflow/deploy-directory/newReport/test-report.html'"
+          echo "3. Test Console Report: 'https://abhiw3dev.github.io/arbworkflow/deploy-directory/consoleLogs/test_consoleLog.html'"
