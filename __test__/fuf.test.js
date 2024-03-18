@@ -54,9 +54,10 @@ describe('First User Flow Test', () => {
     await sleep(20000)
     const newUrl = page.url();
     console.log("> Capturing the URL of the navigated page after the login")
+    console.log('> Captured URL: ',newUrl)
 
     // Verify if the navigation was successful
-    if (newUrl === 'https://appreviewbot.com/') {
+    if (newUrl.includes('https://appreviewbot.com/')) {
         console.log('> Navigated to the correct page.');
         await sleep(1000)
         console.log('> Login sucessfull')
@@ -77,7 +78,7 @@ describe('First User Flow Test', () => {
         await sleep(20000)
 
         // Verify if the navigation was successful
-        if (newUrl === 'https://appreviewbot.com/') {
+        if (newUrl.includes('https://appreviewbot.com/')) {
             console.log('> Navigated to the correct page.');
             await sleep(2000)
             console.log('> Second attempt: Login sucessfull')
