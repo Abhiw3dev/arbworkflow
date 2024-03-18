@@ -55,22 +55,30 @@ describe('First User Flow Test', () => {
     console.log("> login credentials entered")
 
     //submit button
-    await page.click('input[type="submit"]')
+    const click1 = 'input[type="submit"]'
+    const click2 = 'input[name="submit"]'
+    const click3 = 'input[value="Continue"]'
+    if(click1){
+    await page.click(click1)
     console.log('clicked 1st time')
-    await sleep(1000)
-    await page.click('input[name="submit"]')
+    await sleep(3000)
+    }else if(click2){
+    await page.click(click2)
     console.log('clicked 2nd time')
-    await sleep(1000)
-    await page.click('input[value="Continue"]')
+    await sleep(3000)
+    }else if(click3){
+    await page.click(click3)
     console.log('clicked 3rd time')
-
-    await sleep(20000)
+    }else{
+        console.log('submit button not working or clickable')
+    }
+    await sleep(40000)
     const newUrl = page.url();
     console.log("> Capturing the URL of the navigated page after the login")
     console.log('> Captured URL: ',newUrl)
 
     // Verify if the navigation was successful
-    if (newUrl.includes('https://appreviewbot.com/')) {
+    if (newUrl===('https://appreviewbot.com/')) {
         console.log('> Navigated to the correct page.');
         await sleep(1000)
         console.log('> Login sucessfull')
@@ -88,10 +96,10 @@ describe('First User Flow Test', () => {
         await sleep(1000)
         await page.click('input[type="submit"]')
 
-        await sleep(20000)
+        await sleep(40000)
 
         // Verify if the navigation was successful
-        if (newUrl.includes('https://appreviewbot.com/')) {
+        if (newUrl ===('https://appreviewbot.com/')) {
             console.log('> Navigated to the correct page.');
             await sleep(2000)
             console.log('> Second attempt: Login sucessfull')

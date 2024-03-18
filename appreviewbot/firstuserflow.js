@@ -5,7 +5,7 @@ const fs = require('fs')
 
 const firstflow = (async () => {
 
-    const browser = await puppeteer.launch({ headless: true, args: ['--start-maximized'], defaultViewport: null });
+    const browser = await puppeteer.launch({ headless: false, args: ['--start-maximized'], defaultViewport: null });
     const cookiesSlackPath = './signInCookies/slackCookies.json'
 
     if (fs.existsSync(cookiesSlackPath)) {
@@ -20,14 +20,33 @@ const firstflow = (async () => {
         await browser.close()
     }
 
+    // await sleep(3000)
+    // const cookiesArbPath = './signInCookies/arbLoginCookies.json'
+
+    // if (fs.existsSync(cookiesArbPath)) {
+    //     const arbpage = await browser.newPage();
+    //     const cookies = JSON.parse(fs.readFileSync(cookiesArbPath, 'utf-8'));
+    //     for (let cookie of cookies) {
+    //         await arbpage.setCookie(cookie);
+    //     }
+    //     console.log('Cookies loaded successfully for arb.');
+    //     await arbpage.goto('https://www.google.com/')
+         
+    //     await sleep(60000)
+    // } else {
+    //     console.log('No cookies file found for Slack.');
+    //     await browser.close()
+    // }
+
     await sleep(2000)
     const page = await browser.newPage();
 
     console.log("Begin to test the appreviewbot.com");
 
-    await page.goto('https://appreviewbot.com/', { waitUntil: 'load' });
+    await page.goto('https://appreviewbot.com/login/', { waitUntil: 'load' });
 
     console.log("> Reached target site");
+    await sleep(60000)
 
     await sleep(2000);
 
