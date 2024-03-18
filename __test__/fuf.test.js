@@ -1,10 +1,16 @@
-//Check the Llogin and integration function in appreviewbot.com
+
 const puppeteer = require('puppeteer')
-const sleep = require('../utils/sleep');
+const sleep = require('../utils/sleep.js');
 const fs = require('fs')
+ 
+describe('First User Flow Test', () => {
 
-const firstflow = (async () => {
+    beforeAll(async () => {
+        console.log('Starting the Jest test for the arb first user flow');
+    });
 
+    test('Integration Test', async () => {
+        
     const browser = await puppeteer.launch({ headless: true, args: ['--start-maximized'], defaultViewport: null });
     const cookiesSlackPath = './signInCookies/slackCookies.json'
 
@@ -29,7 +35,7 @@ const firstflow = (async () => {
 
     console.log("> Reached target site");
 
-    await sleep(2000);
+    await sleep(15000);
 
     const loginButton = 'a[class="nav__button nav__button--link"]'
     await page.click(loginButton)
@@ -77,6 +83,8 @@ const firstflow = (async () => {
             console.log('> Second attempt: Login sucessfull')
         } else {
             console.log('> Second attempt: Login failed')
+
+            await browser.close()
         }
     }
 
@@ -154,6 +162,7 @@ const firstflow = (async () => {
 
     await sleep(5000)
     await browser.close()
-
+    
+},200000);
 });
-firstflow()
+
