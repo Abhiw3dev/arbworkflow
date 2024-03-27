@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Test Report</title>
+  <style type="text/css">
+    html,
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1rem;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    body {
+      padding: 2rem 1rem;
+      font-size: 0.85rem;
+    }
+
+    .jesthtml-content {
+      margin: 0 auto;
+      max-width: 70rem;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+    }
+
+    #title {
+      margin: 0;
+      flex-grow: 1;
+    }
+ 
+ 
+    .test-result {
+      padding: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .test-result:last-child {
+      border: 0;
+    }
+
+    .test-result.passed {
+      background-color: #dff2bf;
+      color: #4f8a10;
+      font-weight: 550;
+    }
+
+    .suite-container>input[type="checkbox"] {
+      position: absolute;
+      left: -100vw;
+    }
+ 
+    .suite-info {
+      padding: 1rem;
+      background-color: #eee;
+      color: #777;
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.25rem;
+    }
+
+    .suite-info:hover {
+      background-color: #ddd;
+      cursor: pointer;
+    }
+
+    .suite-info .suite-path {
+      word-break: break-all;
+      flex-grow: 1;
+      font-family: monospace;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="console-content">
+    <header>
+      <h1 id="title">Test Report- Console messages</h1>
+    </header>
+    <div id="metadata-container">
+    </div>
+    <div id="suite-1" class="suite-container"><input id="collapsible-0" type="checkbox" class="toggle"
+        checked="checked" /><label for="collapsible-0">
+        <div class="suite-info">
+          <div class="suite-path">C:Usersw3devDesktop puppeteer-githubActions__test__arbsearch.test.js</div>
+        </div>
+      </label>
+      <div class="suite-tests">
+        <div class="test-result passed">
+          <div class="test-info">
+            <pre>2024-02-24T17:03:22.747+05:30: Search time:  2.619 at URL:  https://appreviewbot.com/
+2024-02-24T17:03:23.133+05:30: Response time for searching &quot;slack&quot; on https://appreviewbot.com/: 2.619 seconds
+2024-02-24T17:03:37.814+05:30: Search time:  3.481 at URL:  https://next.appreviewbot.com/
+2024-02-24T17:03:38.197+05:30: Response time for searching &quot;slack&quot; on https://next.appreviewbot.com/: 3.481 seconds
+</pre>
+            </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
